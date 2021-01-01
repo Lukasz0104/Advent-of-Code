@@ -16,7 +16,9 @@ func main() {
 		s = ""
 		fmt.Scanln(&s)
 	}
+
 	part1(&inp)
+	part2(&inp)
 }
 
 func part1(inp *[]int) {
@@ -33,6 +35,22 @@ func part1(inp *[]int) {
 	fmt.Println(diff1 * diff3)
 }
 
-func part2() {
-
+func part2(inp *[]int) {
+	paths := make(map[int]int)
+	paths[(*inp)[len(*inp)-1]] = 1
+	for i := len(*inp) - 2; i >= 0; i-- {
+		c := 0
+		curr := (*inp)[i]
+		for j := 1; j < 4; j++ {
+			ways, exist := paths[curr+j]
+			if exist {
+				c += ways
+			}
+		}
+		if c > 0 {
+			paths[(*inp)[i]] = c
+		}
+	}
+	ways := paths[0]
+	fmt.Println(ways)
 }
