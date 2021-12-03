@@ -1,4 +1,4 @@
-from readData import readData
+from AoCUtils import readData
 DAY = __file__[-5:-3]
 
 
