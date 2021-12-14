@@ -1,4 +1,4 @@
-from AoCUtils import readData, GREEN, RED, RESET
+from AoCUtils import readData
 DAY = __file__[-5:-3]
 
 
@@ -69,9 +69,9 @@ def part2():
 	for row in grid:
 		for col in row:
 			if col == '.':
-				print(GREEN+'.'+RESET, end='')
+				print(' ',end='')
 			else:
-				print(RED+'#'+RESET, end='')
+				print('#', end='')
 		print()
 
 if __name__ == '__main__':
