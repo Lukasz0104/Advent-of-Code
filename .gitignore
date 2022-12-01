@@ -1,4 +1,4 @@
 *.exe
-2021/inputs/cookie.txt
+cookie.txt
 __pycache__
 .vscode
