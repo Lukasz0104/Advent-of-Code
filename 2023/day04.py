@@ -19,8 +19,8 @@ def count_matches(line: str) -> int:
     numbers = line.split(": ")[1]
     winning_part, my_part = numbers.split(" | ")
 
-    winning_nums = set(filter(lambda x: x, winning_part.split(" ")))
-    my_nums = set(filter(lambda x: x, my_part.split(" ")))
+    winning_nums = set(winning_part.split())
+    my_nums = set(my_part.split())
     return len(my_nums.intersection(winning_nums))
 
 
@@ -28,9 +28,9 @@ def part2():
     copy_counts = {(i + 1): 1 for i in range(len(dataStr))}
     for key in copy_counts.keys():
         count = count_matches(dataStr[key - 1])
-        for _ in range(copy_counts[key]):
-            for i in range(count):
-                copy_counts[key + i + 1] += 1
+        val = copy_counts[key]
+        for i in range(count):
+            copy_counts[key + i + 1] += val
 
     print(f"solution to part 2: {sum(copy_counts.values())}")
 
